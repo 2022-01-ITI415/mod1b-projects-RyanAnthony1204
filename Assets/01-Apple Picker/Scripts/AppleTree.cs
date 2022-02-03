@@ -43,16 +43,19 @@ public class AppleTree : MonoBehaviour
         transform.position = pos;
 
         //Changing Directions
-        if (pos.x < -leftAndRightEdge){
+        if (pos.x < -leftAndRightEdge)
+        {
             speed = Mathf.Abs(speed); //Move right
-        }else if (pos.x > leftAndRightEdge){
+        }else if (pos.x > leftAndRightEdge)
+        {
             speed = -Mathf.Abs(speed); //Move left
         }
     }
 
     void FixedUpdate()
     {
-        if (Random.value < chanceToChangeDirections){
+        if (Random.value < chanceToChangeDirections)
+        {
             speed *= -1; //Change direction randomly
         }
     }
