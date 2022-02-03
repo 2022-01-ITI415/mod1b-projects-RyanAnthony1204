@@ -4,6 +4,23 @@ using UnityEngine;
 
 public class AppleTree : MonoBehaviour
 {
+    [Header("Set in Inspector")]
+
+    //Prefab for instaiating apples
+    public GameObject applePrefab;
+
+    //Speed at which the Tree moves
+    public float speed = 1f;
+
+    //Distance where the Tree turns around
+    public float leftAndRightEdge = 10f;
+
+    //Chance the Tree will change directions
+    public float chanceToChangeDirections = 0.1f;
+
+    //Rate at which Apple will be instantiated
+    public float secondsBetweenAppleDrops = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
