@@ -498,6 +498,7 @@ GameObject:
   - component: {fileID: 792234106}
   - component: {fileID: 792234109}
   - component: {fileID: 792234110}
+  - component: {fileID: 792234111}
   m_Layer: 0
   m_Name: _Main Camera
   m_TagString: MainCamera
@@ -604,6 +605,33 @@ MonoBehaviour:
   cloudScaleMin: 1
   cloudScaleMax: 3
   cloudSpeedMult: 0.5
+--- !u!114 &792234111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792234105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd8d1db8e8a892f48925280e17b96d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uitLevel: {fileID: 2129941617}
+  uitShots: {fileID: 169766506}
+  uitButton: {fileID: 1809071112}
+  castlePos: {x: 50, y: -9.5, z: 0}
+  castles:
+  - {fileID: 8978957516634063482, guid: 22b68330750f54647855ae547b31f571, type: 3}
+  - {fileID: 8978957516634063482, guid: 4edc8e3eac7a3734fbec39e41e1bc7ac, type: 3}
+  - {fileID: 8978957516634063482, guid: 85b3f7efc61cb5e4eb5b17ca412e9b73, type: 3}
+  - {fileID: 8978957516634063482, guid: 59912142eddd60d4f957b316c6720429, type: 3}
+  level: 0
+  levelMax: 0
+  shotsTaken: 0
+  castle: {fileID: 0}
+  mode: 0
+  showing: Show Slingshot
 --- !u!1 &846200389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,7 +1356,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2048825870}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 792234111}
+        m_TargetAssemblyTypeName: MissionDemolition, Assembly-CSharp
+        m_MethodName: SwitchView
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2048825870
 MonoBehaviour:
   m_ObjectHideFlags: 0

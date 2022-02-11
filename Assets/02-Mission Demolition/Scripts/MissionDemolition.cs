@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine;
 
 public enum GameMode{
     idle,
@@ -42,14 +43,14 @@ public class MissionDemolition : MonoBehaviour
             Destroy(castle);
         }
 
-        GameObject[] gos = GameObject.FindGameObjectWithTag("Projectile");
+        GameObject[] gos = GameObject.FindGameObjectsWithTag("Projectile");
 
         foreach(GameObject pTemp in gos)
         {
             Destroy(pTemp);
         }
 
-        castle = Instatiate<GameObject>(castles[level]);
+        castle = Instantiate<GameObject>(castles[level]);
         castle.transform.position = castlePos;
         shotsTaken = 0;
 
@@ -121,7 +122,7 @@ public class MissionDemolition : MonoBehaviour
         }
     }
 
-    public static voide ShotsFired()
+    public static void ShotsFired()
     {
         S.shotsTaken++;
     }
