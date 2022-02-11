@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2272996445503816137}
   - component: {fileID: 1599846806080991230}
   - component: {fileID: 6827246143273957222}
+  - component: {fileID: 382796896052940589}
   m_Layer: 0
   m_Name: Wall_Stone
   m_TagString: Untagged
@@ -112,3 +113,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
+--- !u!114 &382796896052940589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4016559556779362487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494e2acd07bd54e60a895e9e8fbed94f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
