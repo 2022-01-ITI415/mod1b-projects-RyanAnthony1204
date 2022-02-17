@@ -6,8 +6,9 @@ TagManager:
   tags:
   - Apple
   - Projectile
-  - Goal
   - Boundary
+  - Point
+  - EndPoint
   layers:
   - Default
   - TransparentFX

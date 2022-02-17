@@ -123,6 +123,23 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &22408766 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3946499517322293357, guid: 9591f23fbe40c594aaf041849b7ce6c5, type: 3}
+  m_PrefabInstance: {fileID: 205733249996965897}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &22408770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22408766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d60b6fe0af8394aafb7eb7b70e8bee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &257013731
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +366,10 @@ PrefabInstance:
     - target: {fileID: 6010228460361678337, guid: a8200fe1f5fc5da49adb4013df749fe1, type: 3}
       propertyPath: m_Name
       value: Finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010228460361678337, guid: a8200fe1f5fc5da49adb4013df749fe1, type: 3}
+      propertyPath: m_TagString
+      value: EndPoint
       objectReference: {fileID: 0}
     - target: {fileID: 8841818861762937470, guid: a8200fe1f5fc5da49adb4013df749fe1, type: 3}
       propertyPath: m_RootOrder
@@ -660,6 +681,10 @@ PrefabInstance:
     - target: {fileID: 3946499517322293357, guid: 9591f23fbe40c594aaf041849b7ce6c5, type: 3}
       propertyPath: m_Name
       value: Capsule
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946499517322293357, guid: 9591f23fbe40c594aaf041849b7ce6c5, type: 3}
+      propertyPath: m_TagString
+      value: Point
       objectReference: {fileID: 0}
     - target: {fileID: 8788688485399316775, guid: 9591f23fbe40c594aaf041849b7ce6c5, type: 3}
       propertyPath: m_RootOrder
