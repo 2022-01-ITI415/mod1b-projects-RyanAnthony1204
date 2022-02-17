@@ -35,7 +35,7 @@ public class Player: MonoBehaviour
     void ScoreCounter()
     {
         pointsDisplay.text = "Score: " + points.ToString();
-        if(points >= 12)
+        if(points >= 100)
         {
             winDisplay.SetActive(true);
         }
@@ -53,7 +53,7 @@ public class Player: MonoBehaviour
         if(other.gameObject.CompareTag("Point"))
         {
             other.gameObject.SetActive(false);
-            points = points + 1;
+            points = points + 100;
 
             ScoreCounter();
         }

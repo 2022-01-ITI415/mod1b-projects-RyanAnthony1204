@@ -9,6 +9,7 @@ TagManager:
   - Boundary
   - Point
   - EndPoint
+  - Character
   layers:
   - Default
   - TransparentFX
