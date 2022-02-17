@@ -214,7 +214,6 @@ GameObject:
   m_Component:
   - component: {fileID: 252859400}
   - component: {fileID: 252859399}
-  - component: {fileID: 252859398}
   m_Layer: 0
   m_Name: Slingshot
   m_TagString: Untagged
@@ -222,24 +221,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &252859398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 252859397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efbdd42aefef362488121b6e6d848e65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabProjectile: {fileID: 5408170093371924328, guid: bc2d4cb7f99ae8c4cb53870356c4f166, type: 3}
-  velocityMult: 8
-  launchPoint: {fileID: 0}
-  launchPos: {x: 0, y: 0, z: 0}
-  projectile: {fileID: 0}
-  aimingMode: 0
 --- !u!135 &252859399
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -368,7 +349,7 @@ GameObject:
   - component: {fileID: 819470780}
   m_Layer: 0
   m_Name: Ceiling
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -718,7 +699,7 @@ GameObject:
   - component: {fileID: 1602750240}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
