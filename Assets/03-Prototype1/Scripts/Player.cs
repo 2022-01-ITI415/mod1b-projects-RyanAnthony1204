@@ -8,6 +8,7 @@ public class Player: MonoBehaviour
 {
     [Header("Set in Inspector")]
     public float playerSpeed;
+    public GameObject goal;
     public TextMeshProUGUI pointsDisplay;
     public GameObject winDisplay;
     private Rigidbody rb;
@@ -32,10 +33,15 @@ public class Player: MonoBehaviour
 
     void ScoreCounter()
     {
+        GameObject[] keys = GameObject.FindGameObjectsWithTag("Point");
         pointsDisplay.text = "Score: " + points.ToString();
-        if(points >= 100)
+        if(points >= (keys.Length * 100))
         {
             winDisplay.SetActive(true);
+            Material mat = GetComponent<Finish>().material;
+            Color c  = mat.color;
+            c.a = 1;
+            mat.color = c;
         }
     }
 
@@ -55,6 +61,7 @@ public class Player: MonoBehaviour
 
             ScoreCounter();
         }
+
     }
 
 }
