@@ -38,10 +38,10 @@ public class Player: MonoBehaviour
         if(points >= (keys.Length * 100))
         {
             winDisplay.SetActive(true);
-            Material mat = GetComponent<Finish>().material;
-            Color c  = mat.color;
-            c.a = 1;
-            mat.color = c;
+            //Material mat = GetComponent<Finish>().material;
+            //Color c  = mat.color;
+            //c.a = 1;
+            //mat.color = c;
         }
     }
 
@@ -62,6 +62,10 @@ public class Player: MonoBehaviour
             ScoreCounter();
         }
 
+        if(other.gameObject.CompareTag("EndPoint"))
+        {
+
+        }
     }
 
 }
