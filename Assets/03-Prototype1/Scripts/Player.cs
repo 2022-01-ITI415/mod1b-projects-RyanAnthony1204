@@ -13,7 +13,6 @@ public class Player: MonoBehaviour
     private Rigidbody rb;
     private int points;
     private float movementX;
-    private float movementY;
 
     void Start()
     {
@@ -29,7 +28,6 @@ public class Player: MonoBehaviour
         Vector2 movementVector = movementValue.Get<Vector2>();
 
         movementX = movementVector.x;
-        movementY = movementVector.y;
     }
 
     void ScoreCounter()
@@ -43,7 +41,7 @@ public class Player: MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+        Vector3 movement = new Vector3(movementX, 0.0f, 0.0f);
 
         rb.AddForce(movement * playerSpeed);
     }

@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1b981a55fea224ea8d47708424143b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 2
+  playerSpeed: 10
   pointsDisplay: {fileID: 1948180742}
   winDisplay: {fileID: 1622549674}
 --- !u!114 &1441033111
@@ -1175,6 +1175,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 257013732}
     m_Modifications:
+    - target: {fileID: 3011193265614642644, guid: 9591f23fbe40c594aaf041849b7ce6c5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3946499517322293357, guid: 9591f23fbe40c594aaf041849b7ce6c5, type: 3}
       propertyPath: m_Name
       value: Capsule
