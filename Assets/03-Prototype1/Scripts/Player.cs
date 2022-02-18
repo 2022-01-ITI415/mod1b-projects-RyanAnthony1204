@@ -8,16 +8,16 @@ public class Player: MonoBehaviour
     [Header("Set in Inspector")]
     public float playerSpeed;
     private Rigidbody rb;
-    public static int points;
+    public int lives;
+    public static int points = 0;
     private float movementX;
-    public int lives = 3;
     public static bool goal = false;
     public static bool dead = false;
+    public static bool door = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        points = 0;
     }
 
     void OnMove(InputValue movementValue)
@@ -34,27 +34,40 @@ public class Player: MonoBehaviour
         rb.AddForce(movement * playerSpeed);
     }
 
+    public void Check()
+    {
+        int x = 0;
+        GameObject[] keys = GameObject.FindGameObjectsWithTag("Point");
+        foreach(GameObject g in keys)
+        {
+            x++;
+        }
+        if(x == 0)
+        {
+            door = true;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        GameObject[] keys = GameObject.FindGameObjectsWithTag("Point");
         if(other.gameObject.CompareTag("Point"))
         {
             other.gameObject.SetActive(false);
-            points = points + 100;
+            Check();
         }
 
         if(other.gameObject.CompareTag("Bullet"))
         {
+            lives--;
             Material mat = GetComponent<Renderer>().material;
             Color c = mat.color;
-            lives--;
             if (lives == 2)
             {
-                c.a = 0.7f;
+                c.a = 0.6f;
                 mat.color = c;
             }else if(lives == 1)
             {
-                c.a = 0.4f;
+                c.a = 0.35f;
                 mat.color = c;
             }else if(lives == 0)
             {
@@ -63,7 +76,7 @@ public class Player: MonoBehaviour
             }
         }
 
-        if (other.gameObject.CompareTag("EndPoint") && (points >= (keys.Length * 100)))
+        if (other.gameObject.CompareTag("EndPoint") && door)
         {
            goal = true;
         }

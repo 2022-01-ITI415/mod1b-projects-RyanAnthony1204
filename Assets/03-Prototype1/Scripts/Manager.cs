@@ -32,6 +32,9 @@ public class Manager : MonoBehaviour
         
         Player.goal = false;
         Player.dead = false;
+        Player.door = false;
+        Player.points = 0;
+        Finish.count = 0;
         
         level = Instantiate<GameObject>(levels[stage]);
     }

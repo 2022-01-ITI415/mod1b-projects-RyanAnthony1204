@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class Finish : MonoBehaviour
 {   
-    void Update()
+    public static int count = 0;
+
+    void Start()
     {
         GameObject[] keys = GameObject.FindGameObjectsWithTag("Point");
-        if (Player.points >= (keys.Length * 100))
+        foreach(GameObject g in keys)
+        {
+            count++;
+        }
+    }
+    void Update()
+    {    
+        if (Player.door)
         {
             Material mat = GetComponent<Renderer>().material;
             Color c = mat.color;
