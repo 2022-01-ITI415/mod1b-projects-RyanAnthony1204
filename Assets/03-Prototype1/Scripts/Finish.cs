@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Finish : MonoBehaviour
 {
-    // Start is called before the first frame update
+    static private Finish S;
+    
     void Start()
     {
-        
+        S = this;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        GameObject[] keys = GameObject.FindGameObjectsWithTag("Point");
+        if (Player.points >= (keys.Length * 100))
+        {
+            
+        }
     }
 }

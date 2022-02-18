@@ -8,12 +8,10 @@ public class Player: MonoBehaviour
 {
     [Header("Set in Inspector")]
     public float playerSpeed;
-    public GameObject goal;
-    public TextMeshProUGUI pointsDisplay;
-    public GameObject winDisplay;
     private Rigidbody rb;
-    private int points;
+    public static int points;
     private float movementX;
+    public static int lives = 3;
 
     void Start()
     {
@@ -21,7 +19,6 @@ public class Player: MonoBehaviour
         points = 0;
 
         ScoreCounter();
-        winDisplay.SetActive(false);
     }
 
     void OnMove(InputValue movementValue)
@@ -33,16 +30,7 @@ public class Player: MonoBehaviour
 
     void ScoreCounter()
     {
-        GameObject[] keys = GameObject.FindGameObjectsWithTag("Point");
-        pointsDisplay.text = "Score: " + points.ToString();
-        if(points >= (keys.Length * 100))
-        {
-            winDisplay.SetActive(true);
-            //Material mat = GetComponent<Finish>().material;
-            //Color c  = mat.color;
-            //c.a = 1;
-            //mat.color = c;
-        }
+        
     }
 
     void FixedUpdate()
@@ -59,12 +47,28 @@ public class Player: MonoBehaviour
             other.gameObject.SetActive(false);
             points = points + 100;
 
+            Manager.updateScore(points);
+
             ScoreCounter();
         }
 
-        if(other.gameObject.CompareTag("EndPoint"))
+        if(other.gameObject.CompareTag("Bullet"))
         {
+            lives--;
+            Manager.updateLives(lives);
+            if (lives == 0)
+            {
+                Destroy(this.gameObject);
+                Manager.updateWin("Game Over!");
+            }
+        }
 
+        if (other.gameObject.CompareTag("EndPoint"))
+        {
+            Material mat = GetComponent<Renderer>().material;
+            Color c = mat.color;
+            c.a = 1;
+            mat.color = c;
         }
     }
 
