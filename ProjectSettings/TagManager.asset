@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Apple
+  - Projectile
+  - Boundary
+  - Point
+  - EndPoint
+  - Character
+  - Goal
+  - Turret
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -13,14 +22,14 @@ TagManager:
   - UI
   - 
   - 
+  - AppleTree
+  - Apple
+  - Basket
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Bullet
+  - Turret
+  - Player
   - 
   - 
   - 
