@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
 
 public class Player: MonoBehaviour
 {
@@ -11,14 +10,14 @@ public class Player: MonoBehaviour
     private Rigidbody rb;
     public static int points;
     private float movementX;
-    public static int lives = 3;
+    public int lives = 3;
+    public static bool goal = false;
+    public static bool dead = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         points = 0;
-
-        ScoreCounter();
     }
 
     void OnMove(InputValue movementValue)
@@ -26,11 +25,6 @@ public class Player: MonoBehaviour
         Vector2 movementVector = movementValue.Get<Vector2>();
 
         movementX = movementVector.x;
-    }
-
-    void ScoreCounter()
-    {
-        
     }
 
     void FixedUpdate()
@@ -42,33 +36,36 @@ public class Player: MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        GameObject[] keys = GameObject.FindGameObjectsWithTag("Point");
         if(other.gameObject.CompareTag("Point"))
         {
             other.gameObject.SetActive(false);
             points = points + 100;
-
-            Manager.updateScore(points);
-
-            ScoreCounter();
         }
 
         if(other.gameObject.CompareTag("Bullet"))
         {
+            Material mat = GetComponent<Renderer>().material;
+            Color c = mat.color;
             lives--;
-            Manager.updateLives(lives);
-            if (lives == 0)
+            if (lives == 2)
+            {
+                c.a = 0.7f;
+                mat.color = c;
+            }else if(lives == 1)
+            {
+                c.a = 0.4f;
+                mat.color = c;
+            }else if(lives == 0)
             {
                 Destroy(this.gameObject);
-                Manager.updateWin("Game Over!");
+                dead = true;
             }
         }
 
-        if (other.gameObject.CompareTag("EndPoint"))
+        if (other.gameObject.CompareTag("EndPoint") && (points >= (keys.Length * 100)))
         {
-            Material mat = GetComponent<Renderer>().material;
-            Color c = mat.color;
-            c.a = 1;
-            mat.color = c;
+           goal = true;
         }
     }
 

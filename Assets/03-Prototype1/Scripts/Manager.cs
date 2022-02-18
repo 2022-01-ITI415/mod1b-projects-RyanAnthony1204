@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
@@ -10,9 +9,6 @@ public class Manager : MonoBehaviour
     
     [Header("Set in Inspector")]
     public GameObject[] levels;
-    public static Text pointsDisplay;
-    public static Text winDisplay;
-    public static Text lifeDisplay;
 
     [Header("Set Dynamically")]
     public int stage;
@@ -33,12 +29,11 @@ public class Manager : MonoBehaviour
         {
             Destroy(level);
         }
-
+        
+        Player.goal = false;
+        Player.dead = false;
+        
         level = Instantiate<GameObject>(levels[stage]);
-        //pointsDisplay.text = "Score: " + Player.points;
-        Manager.updateScore(Player.points);
-        //winDisplay.text = "Collect the Green Keys!";
-        //lifeDisplay.text = Player.lives + " Lives Left";
     }
 
     void NextLevel()
@@ -52,18 +47,16 @@ public class Manager : MonoBehaviour
         StartLevel();
     }
 
-    public static void updateScore(int pts)
+    void Update()
     {
-        pointsDisplay.text = "Score: " + pts;
-    }
-
-    public static void updateLives(int lf)
-    {
-        lifeDisplay.text = lf + " Lives Left";
-    }
-
-    public static void updateWin(string txt)
-    {
-        winDisplay.text = txt;
+        if(Player.goal == true)
+        {
+            NextLevel();
+        }
+        if(Player.dead == true)
+        {
+            stage = 0;
+            StartLevel();
+        }
     }
 }
